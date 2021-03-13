@@ -1,0 +1,26 @@
+import Rpi.GPIO asGPIO
+import time
+
+sensor_SOIL=40
+buzzer=38
+
+GPIO.setmode(GPIO.BOAED)
+GPIO.setup(sensor_SOIL.GPIO.IN)
+GPIO.setup(buzzer,GPIO.OUT)
+
+GPIO.output(buzzer,False)
+print"Soil Sensor Ready.."
+print" "
+
+try:
+	While True:
+		if GPIO.input(Sensor_SOIL):
+		GPIO.output(buzzer,False)
+		print"Soil is not Detected"
+		While GPIO.input(sensor_SOIL):
+		time.sleep(0.2)
+	else:
+		GPIO.output(buzzer,True)
+		print"Soil Sensor is Detected"
+except KeyboardInterrupt:
+GPIO.cleanup()
